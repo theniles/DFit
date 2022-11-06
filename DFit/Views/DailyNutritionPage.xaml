@@ -19,7 +19,7 @@
          WidthRequest="200"
          HorizontalOptions="Center" 
          Grid.Column="0" Grid.Row="0"/>
-        <uc:EllipseProgress Grid.Column="0" Grid.Row="1" Stroke="Violet" StrokeThickness="4" HorizontalOptions="Center">
+        <uc:EllipseProgress Grid.Column="0" Grid.Row="1" HorizontalOptions="Center">
            
         </uc:EllipseProgress>
         <VerticalStackLayout Grid.Column="0" Grid.Row="2">

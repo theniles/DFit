@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DFit.Views.Converters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,36 +9,58 @@ using System.Threading.Tasks;
 
 namespace DFit.Models
 {
-    public class NutritionGoal : INotifyPropertyChanged
+    public class NutritionGoal : BindableObject
     {
-        private Nutrition currentNutrition;
-        private Nutrition targetNutrition;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string name = null)
+        public NutritionGoal()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            var binding = new MultiBinding();
+            binding.Bindings = new Binding[] {
+                new Binding(path: nameof(TargetNutrition) ,source: this),
+                new Binding(path: nameof(CurrentNutrition) ,source: this),};
+
+            binding.Converter = new NutritionGoalProgressConverter();
+            binding.Mode = BindingMode.OneWayToSource;
+            //binding.FallbackValue = 0;
+
+            SetBinding(ProgressProperty, binding);
         }
+
+        public static NutritionGoal NewDefault => new NutritionGoal();
 
         public Nutrition CurrentNutrition
         {
-            get { return currentNutrition; }
-            set
-            {
-                currentNutrition = value; OnPropertyChanged();
-            }
+            get { return (Nutrition)GetValue(CurrentNutritionProperty); }
+            set { SetValue(CurrentNutritionProperty, value); }
         }
+
+        // Using a DependencyProperty as the backing store for CurrentNutrition.  This enables animation, styling, binding, etc...
+        public static readonly BindableProperty CurrentNutritionProperty =
+            BindableProperty.Create(nameof(CurrentNutrition), typeof(Nutrition), typeof(NutritionGoal), defaultValueCreator: bindable => new Nutrition());
+
+
 
         public Nutrition TargetNutrition
         {
-            get { return targetNutrition; }
-            set
-            {
-                targetNutrition = value; OnPropertyChanged();
-            }
+            get { return (Nutrition)GetValue(TargetNutritionProperty); }
+            set { SetValue(TargetNutritionProperty, value); }
         }
 
-        public double KCalProgress { get} 
+        // Using a DependencyProperty as the backing store for TargetNutrition.  This enables animation, styling, binding, etc...
+        public static readonly BindableProperty TargetNutritionProperty =
+            BindableProperty.Create(nameof(TargetNutrition), typeof(Nutrition), typeof(NutritionGoal), defaultValueCreator: bindable => new Nutrition(2000));
+
+
+
+        public double Progress
+        {
+            get { return (double)GetValue(ProgressProperty); }
+            internal set { SetValue(ProgressProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Progress.  This enables animation, styling, binding, etc...
+        internal static readonly BindablePropertyKey ProgressPropertyKey =
+            BindableProperty.CreateReadOnly(nameof(Progress), typeof(double), typeof(NutritionGoal), 0);
+
+        public static readonly BindableProperty ProgressProperty = ProgressPropertyKey.BindableProperty;
     }
 }

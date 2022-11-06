@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:DFit.Views.Converters"
              x:Class="DFit.Views.Controls.EllipseProgress">
-    <Path>
+    <Path Stroke="Violet" StrokeThickness="4">
         <Path.Data>
             <PathGeometry>
                 <PathGeometry.Figures>
                     <PathFigureCollection>
                         <PathFigure>
                             <PathFigure.StartPoint>
-                                <Binding Source="{Binding }"/>
+                                <Binding Source="{Binding Source={Binding Source=Progress}}"/>
                             </PathFigure.StartPoint>
                                     <PathFigure.Segments>
                                         <PathSegmentCollection>

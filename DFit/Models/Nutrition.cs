@@ -8,21 +8,24 @@ using System.Threading.Tasks;
 
 namespace DFit.Models
 {
-    public class Nutrition : INotifyPropertyChanged
+    public class Nutrition : BindableObject
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public static readonly BindableProperty KCalCountProperty =
+            BindableProperty.Create(nameof(KCalCount), typeof(double), typeof(Nutrition), 0, BindingMode.TwoWay);
 
-        private void OnPropertyChanged([CallerMemberName]string name = null)
+        public Nutrition(double kCalCount)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            KCalCount = kCalCount;
         }
 
-        private int kCalCount = 0;
-
-        public int KCalCount
+        public Nutrition()
         {
-            get { return kCalCount; }
-            set { kCalCount = value; OnPropertyChanged(); }
+        }
+
+        public double KCalCount
+        {
+            get => (double)GetValue(KCalCountProperty); 
+            set => SetValue(KCalCountProperty, value);
         }
     }
 }
