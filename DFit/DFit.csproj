@@ -49,6 +49,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\Controls\CircularProgressBar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\Controls\EllipseProgress.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

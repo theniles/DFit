@@ -11,7 +11,7 @@ namespace DFit.Models
     public class Nutrition : BindableObject
     {
         public static readonly BindableProperty KCalCountProperty =
-            BindableProperty.Create(nameof(KCalCount), typeof(double), typeof(Nutrition), 0, BindingMode.TwoWay);
+            BindableProperty.Create(nameof(KCalCount), typeof(double), typeof(Nutrition), 0d, BindingMode.TwoWay);
 
         public Nutrition(double kCalCount)
         {

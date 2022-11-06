@@ -25,8 +25,6 @@ namespace DFit.Models
             SetBinding(ProgressProperty, binding);
         }
 
-        public static NutritionGoal NewDefault => new NutritionGoal();
-
         public Nutrition CurrentNutrition
         {
             get { return (Nutrition)GetValue(CurrentNutritionProperty); }
@@ -54,12 +52,12 @@ namespace DFit.Models
         public double Progress
         {
             get { return (double)GetValue(ProgressProperty); }
-            internal set { SetValue(ProgressProperty, value); }
+            internal set { SetValue(ProgressPropertyKey, value); }
         }
 
         // Using a DependencyProperty as the backing store for Progress.  This enables animation, styling, binding, etc...
         internal static readonly BindablePropertyKey ProgressPropertyKey =
-            BindableProperty.CreateReadOnly(nameof(Progress), typeof(double), typeof(NutritionGoal), 0);
+            BindableProperty.CreateReadOnly(nameof(Progress), typeof(double), typeof(NutritionGoal), 0d);
 
         public static readonly BindableProperty ProgressProperty = ProgressPropertyKey.BindableProperty;
     }

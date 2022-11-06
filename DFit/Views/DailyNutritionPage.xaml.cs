@@ -8,6 +8,5 @@ public partial class DailyNutritionPage : ContentPage
 	public DailyNutritionPage()
 	{
 		InitializeComponent();
-		BindingContext = new NutritionGoal();
 	}
 }

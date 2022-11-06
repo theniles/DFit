@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:DFit.Views.Converters"
+             xmlns:controls="clr-namespace:DFit.Views.Controls"
+             x:Class="DFit.Views.Controls.CircularProgressBar">
+    <ContentView.Resources>
+    </ContentView.Resources>
+    <Grid>
+        <Path Stroke="Gray" StrokeThickness="4" HorizontalOptions="Center" VerticalOptions="Center">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <ArcSegment Point="0,0" SweepDirection="CounterClockwise" IsLargeArc="True" Size="50,50"/>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Stroke="Gray" StrokeThickness="4" HorizontalOptions="Center" VerticalOptions="Center">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="50,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <ArcSegment Point="50,100" SweepDirection="Clockwise" IsLargeArc="True" Size="50,50"/>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Grid>
+</ContentView>

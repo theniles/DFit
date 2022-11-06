@@ -29,13 +29,23 @@ namespace DFit.Views.Converters
         /// <summary>
         /// The radius of the ellipse.
         /// </summary>
-        public Point Radius { get; set; }
+        public Size Radius { get; set; }
 
         /// <summary>
         /// An angle offset measured from the positive y axis indicating where the angle of the ellipse should
         /// start.
         /// </summary>
         public double AngleOffset { get; set; }
+
+        private static bool GetParameter(object parameter)
+        {
+            if (parameter is bool b)
+                return b;
+            else if (parameter is string s)
+                return bool.Parse(s);
+            else
+                throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Returns the end point of an arc starting from the positive y axis on this ellipse
@@ -49,9 +59,9 @@ namespace DFit.Views.Converters
 
             var point = Center;
 
-            point.X += sin * Radius.X;
+            point.X += sin * Radius.Width;
 
-            point.Y += cos * Radius.Y;
+            point.Y += cos * Radius.Height;
 
             return point;
         }
@@ -74,7 +84,7 @@ namespace DFit.Views.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var angle = (double)value;
-            var flag = (bool)parameter;
+            var flag = GetParameter(parameter);
 
             if(flag)
             {

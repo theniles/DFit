@@ -19,13 +19,14 @@
          WidthRequest="200"
          HorizontalOptions="Center" 
          Grid.Column="0" Grid.Row="0"/>
-        <uc:EllipseProgress Grid.Column="0" Grid.Row="1" HorizontalOptions="Center">
-           
-        </uc:EllipseProgress>
+        
+        
+        
         <VerticalStackLayout Grid.Column="0" Grid.Row="2">
             <Slider Minimum="0" Maximum="360" x:Name="angleSlider">
                 
             </Slider>
+            <uc:CircularProgressBar/>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

@@ -2,27 +2,10 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:converters="clr-namespace:DFit.Views.Converters"
-             x:Class="DFit.Views.Controls.EllipseProgress">
-    <Path Stroke="Violet" StrokeThickness="4">
-        <Path.Data>
-            <PathGeometry>
-                <PathGeometry.Figures>
-                    <PathFigureCollection>
-                        <PathFigure>
-                            <PathFigure.StartPoint>
-                                <Binding Source="{Binding Source={Binding Source=Progress}}"/>
-                            </PathFigure.StartPoint>
-                                    <PathFigure.Segments>
-                                        <PathSegmentCollection>
-                                            <ArcSegment Size="100,100">
-
-                                            </ArcSegment>
-                                        </PathSegmentCollection>
-                                    </PathFigure.Segments>
-                        </PathFigure>
-                    </PathFigureCollection>
-                </PathGeometry.Figures>
-            </PathGeometry>
-        </Path.Data>
-    </Path>
+             xmlns:controls="clr-namespace:DFit.Views.Controls"
+             x:Class="DFit.Views.Controls.EllipseProgress"
+             x:Name="ep"
+             x:DataType="controls:EllipseProgress">
+    <ContentView.Resources>
+    </ContentView.Resources>
 </ContentView>
