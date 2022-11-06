@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:uc="clr-namespace:DFit.Views.Controls"
+             x:Class="DFit.Views.DailyNutritionPage"
+             Title="Daily Nutrition">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="1*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Ellipse Stroke="Red"
+         StrokeThickness="4"
+         WidthRequest="200"
+         HorizontalOptions="Center" 
+         Grid.Column="0" Grid.Row="0"/>
+        <uc:EllipseProgress Grid.Column="0" Grid.Row="1" Stroke="Violet" StrokeThickness="4" HorizontalOptions="Center">
+           
+        </uc:EllipseProgress>
+        <VerticalStackLayout Grid.Column="0" Grid.Row="2">
+            <Slider Minimum="0" Maximum="360" x:Name="angleSlider">
+                
+            </Slider>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>
