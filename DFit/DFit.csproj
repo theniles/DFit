@@ -55,6 +55,9 @@
 	  <MauiXaml Update="Views\Controls\EllipseProgress.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\Controls\WaterGlassProgressBar.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\DailyNutritionPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

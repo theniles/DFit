@@ -18,7 +18,7 @@ namespace DFit.Views.Converters
             var current = values[1] as Nutrition ?? throw new ArgumentNullException();
 
             //mean of ratios
-            return ((current.KCalCount / target.KCalCount)) / 1;
+            return ((current.KCalCount / target.KCalCount) + (current.ProteinGramCount / target.ProteinGramCount) + (current.WaterLiterCount / target.WaterLiterCount)) / 3;
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

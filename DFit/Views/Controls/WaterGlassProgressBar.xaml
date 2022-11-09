@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:DFit.Views.Converters"
+             x:Class="DFit.Views.Controls.WaterGlassProgressBar"
+             x:Name="self">
+    <Grid HorizontalOptions="{Binding Source={Reference self}, Path=HorizontalOptions}" VerticalOptions="{Binding Source={Reference self}, Path=VerticalOptions}">
+        <!--Water in the glass-->
+        <Path Fill="blue">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure IsClosed="True">
+                                <PathFigure.StartPoint>
+                                    <MultiBinding>
+                                        <MultiBinding.Converter>
+                                            <converters:WaterPathStartPointGenerator/>
+                                        </MultiBinding.Converter>
+                                        <MultiBinding.Bindings>
+                                            <Binding Source="{Reference self}" Path="Size" Mode="OneWay"/>
+                                            <Binding Source="{Reference self}" Path="BaseWidth" Mode="OneWay"/>
+                                            <Binding Source="{Reference self}" Path="EdgeWidth" Mode="OneWay"/>
+                                            <Binding Source="{Reference self}" Path="GlassHeight" Mode="OneWay"/>
+                                            <Binding Source="{Reference self}" Path="WaterHeight" Mode="OneWay"/>
+                                            <Binding Source="{Reference self}" Path="Progress" Mode="OneWay"/>
+                                        </MultiBinding.Bindings>
+                                    </MultiBinding>
+                                </PathFigure.StartPoint>
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyLineSegment>
+                                            <PolyLineSegment.Points>
+                                                <MultiBinding>
+                                                    <MultiBinding.Converter>
+                                                        <converters:WaterPathStillPointsGenerator/>
+                                                    </MultiBinding.Converter>
+                                                    <MultiBinding.Bindings>
+                                                        <Binding Source="{Reference self}" Path="Size" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="BaseWidth" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="EdgeWidth" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="GlassHeight" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="WaterHeight" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="Progress" Mode="OneWay"/>
+                                                    </MultiBinding.Bindings>
+                                                </MultiBinding>
+                                            </PolyLineSegment.Points>
+                                        </PolyLineSegment>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <!--The glass-->
+        <Path Stroke="gold" StrokeLineJoin="Round" StrokeLineCap="Round" StrokeThickness="5">
+            <Path.Data>
+                <PathGeometry>
+                    <PathGeometry.Figures>
+                        <PathFigureCollection>
+                            <PathFigure StartPoint="0,0">
+                                <PathFigure.Segments>
+                                    <PathSegmentCollection>
+                                        <PolyLineSegment>
+                                            <PolyLineSegment.Points>
+                                                <MultiBinding>
+                                                    <MultiBinding.Converter>
+                                                        <converters:GlassPathPointsGenerator/>
+                                                    </MultiBinding.Converter>
+                                                    <MultiBinding.Bindings>
+                                                        <Binding Source="{Reference self}" Path="Size" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="BaseWidth" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="EdgeWidth" Mode="OneWay"/>
+                                                        <Binding Source="{Reference self}" Path="GlassHeight" Mode="OneWay"/>
+                                                    </MultiBinding.Bindings>
+                                                </MultiBinding>
+                                            </PolyLineSegment.Points>
+                                        </PolyLineSegment>
+                                    </PathSegmentCollection>
+                                </PathFigure.Segments>
+                            </PathFigure>
+                        </PathFigureCollection>
+                    </PathGeometry.Figures>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <!--TODO Overflow water out of the glass?-->
+    </Grid>
+</ContentView>

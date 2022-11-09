@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maui.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -27,5 +28,16 @@ namespace DFit.Models
             get => (double)GetValue(KCalCountProperty); 
             set => SetValue(KCalCountProperty, value);
         }
+
+
+        public static readonly BindableProperty ProteinGramCountProperty =
+        BindableProperty.Create(nameof(ProteinGramCount), typeof(double), typeof(Nutrition));
+        public double ProteinGramCount { get => (double)GetValue(ProteinGramCountProperty); set => SetValue(ProteinGramCountProperty, value); }
+
+
+        public static readonly BindableProperty WaterLiterCountProperty =
+        BindableProperty.Create(nameof(WaterLiterCount), typeof(double), typeof(Nutrition));
+        public double WaterLiterCount { get => (double)GetValue(WaterLiterCountProperty); set => SetValue(WaterLiterCountProperty, value); }
+
     }
 }

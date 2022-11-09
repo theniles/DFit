@@ -9,24 +9,16 @@
             <RowDefinition Height="200"/>
             <RowDefinition Height="200"/>
             <RowDefinition Height="1*"/>
-
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Ellipse Stroke="Red"
-         StrokeThickness="4"
-         WidthRequest="200"
-         HorizontalOptions="Center" 
-         Grid.Column="0" Grid.Row="0"/>
-        
-        
-        
         <VerticalStackLayout Grid.Column="0" Grid.Row="2">
-            <Slider Minimum="0" Maximum="360" x:Name="angleSlider">
-                
-            </Slider>
-            <uc:CircularProgressBar/>
+            <Slider x:Name="s" Minimum="0" Maximum="1" Value="1"/>
+            <uc:WaterGlassProgressBar 
+                Progress="{Binding Source={Reference s}, Path=Value}"
+                VerticalOptions="Center" HorizontalOptions="Start"/>
+            <Entry HorizontalOptions="Start"/>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

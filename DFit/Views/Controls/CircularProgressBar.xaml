@@ -7,39 +7,23 @@
     <ContentView.Resources>
     </ContentView.Resources>
     <Grid>
-        <Path Stroke="Gray" StrokeThickness="4" HorizontalOptions="Center" VerticalOptions="Center">
+        <Path Stroke="gray" StrokeThickness="5" Fill="green">
             <Path.Data>
-                <PathGeometry>
-                    <PathGeometry.Figures>
-                        <PathFigureCollection>
-                            <PathFigure StartPoint="0,0">
-                                <PathFigure.Segments>
-                                    <PathSegmentCollection>
-                                        <ArcSegment Point="0,0" SweepDirection="CounterClockwise" IsLargeArc="True" Size="50,50"/>
-                                    </PathSegmentCollection>
-                                </PathFigure.Segments>
-                            </PathFigure>
-                        </PathFigureCollection>
-                    </PathGeometry.Figures>
-                </PathGeometry>
+                <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50">
+                    
+                </EllipseGeometry>
             </Path.Data>
-        </Path>
-        <Path Stroke="Gray" StrokeThickness="4" HorizontalOptions="Center" VerticalOptions="Center">
-            <Path.Data>
+            <Path.Clip>
                 <PathGeometry>
-                    <PathGeometry.Figures>
-                        <PathFigureCollection>
-                            <PathFigure StartPoint="50,0">
-                                <PathFigure.Segments>
-                                    <PathSegmentCollection>
-                                        <ArcSegment Point="50,100" SweepDirection="Clockwise" IsLargeArc="True" Size="50,50"/>
-                                    </PathSegmentCollection>
-                                </PathFigure.Segments>
-                            </PathFigure>
-                        </PathFigureCollection>
-                    </PathGeometry.Figures>
+                    <PathFigureCollection>
+                        <PathFigure StartPoint="0,30" IsClosed="True">
+                            <LineSegment Point="100,30" />
+                            <LineSegment Point="100,100" />
+                            <LineSegment Point="0,100" />
+                        </PathFigure>
+                    </PathFigureCollection>
                 </PathGeometry>
-            </Path.Data>
+            </Path.Clip>
         </Path>
     </Grid>
 </ContentView>
