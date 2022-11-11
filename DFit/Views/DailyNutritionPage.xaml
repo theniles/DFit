@@ -15,9 +15,13 @@
         </Grid.ColumnDefinitions>
         <VerticalStackLayout Grid.Column="0" Grid.Row="2">
             <Slider x:Name="s" Minimum="0" Maximum="1" Value="1"/>
+            <uc:BezierProgressBar HorizontalOptions="Center" TopMiddleWidth="60"/>
+
+            <uc:BezierProgressBar/>
+            <uc:BezierProgressBar HorizontalOptions="Center" BottomHeight="5" BottomMiddleWidth="40" BottomEdgeWidth="15"/>
             <uc:WaterGlassProgressBar 
                 Progress="{Binding Source={Reference s}, Path=Value}"
-                VerticalOptions="Center" HorizontalOptions="Start"/>
+                VerticalOptions="Center" HorizontalOptions="Center"/>
             <Entry HorizontalOptions="Start"/>
         </VerticalStackLayout>
     </Grid>

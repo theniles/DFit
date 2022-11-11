@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DFit.Views.Controls.BezierProgressBar"
+             xmlns:converters="clr-namespace:DFit.Views.Converters"
+             xmlns:local="clr-namespace:DFit.Views.Controls"
+             x:Name="self">
+    <AbsoluteLayout>
+        <Path StrokeThickness="4" Stroke="Green" StrokeLineJoin="Round" StrokeLineCap="Round">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure>
+                        <PathFigure.StartPoint>
+                            <MultiBinding>
+                                <MultiBinding.Converter>
+                                    <converters:BezierGlassStartPointGenerator/>
+                                </MultiBinding.Converter>
+                                <MultiBinding.Bindings>
+                                    <Binding Source="{Reference self}" Path="BottomMiddleWidth"/>
+                                    <Binding Source="{Reference self}" Path="BottomEdgeWidth"/>
+                                    <Binding Source="{Reference self}" Path="TopMiddleWidth"/>
+                                    <Binding Source="{Reference self}" Path="TopEdgeWidth"/>
+                                    <Binding Source="{Reference self}" Path="TopHeight"/>
+                                    <Binding Source="{Reference self}" Path="MiddleHeight"/>
+                                    <Binding Source="{Reference self}" Path="BottomHeight"/>
+                                </MultiBinding.Bindings>
+                            </MultiBinding>
+                        </PathFigure.StartPoint>
+                        <PathFigure.Segments>
+                            <PolyBezierSegment>
+                                <PolyBezierSegment.Points>
+                                    <MultiBinding ConverterParameter="false">
+                                        <MultiBinding.Converter>
+                                            <converters:BezierGlassCurvePointsGenerator/>
+                                        </MultiBinding.Converter>
+                                        <MultiBinding.Bindings>
+                                            <Binding Source="{Reference self}" Path="BottomMiddleWidth"/>
+                                            <Binding Source="{Reference self}" Path="BottomEdgeWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopMiddleWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopEdgeWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopHeight"/>
+                                            <Binding Source="{Reference self}" Path="MiddleHeight"/>
+                                            <Binding Source="{Reference self}" Path="BottomHeight"/>
+                                        </MultiBinding.Bindings>
+                                    </MultiBinding>
+                                </PolyBezierSegment.Points>
+                            </PolyBezierSegment>
+                            <LineSegment>
+                                <LineSegment.Point>
+                                    <MultiBinding>
+                                        <MultiBinding.Converter>
+                                            <converters:BezierGlassLinePointGenerator/>
+                                        </MultiBinding.Converter>
+                                        <MultiBinding.Bindings>
+                                            <Binding Source="{Reference self}" Path="BottomMiddleWidth"/>
+                                            <Binding Source="{Reference self}" Path="BottomEdgeWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopMiddleWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopEdgeWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopHeight"/>
+                                            <Binding Source="{Reference self}" Path="MiddleHeight"/>
+                                            <Binding Source="{Reference self}" Path="BottomHeight"/>
+                                        </MultiBinding.Bindings>
+                                    </MultiBinding>
+                                </LineSegment.Point>
+                            </LineSegment>
+                            <PolyBezierSegment>
+                                <PolyBezierSegment.Points>
+                                    <MultiBinding ConverterParameter="true">
+                                        <MultiBinding.Converter>
+                                            <converters:BezierGlassCurvePointsGenerator/>
+                                        </MultiBinding.Converter>
+                                        <MultiBinding.Bindings>
+                                            <Binding Source="{Reference self}" Path="BottomMiddleWidth"/>
+                                            <Binding Source="{Reference self}" Path="BottomEdgeWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopMiddleWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopEdgeWidth"/>
+                                            <Binding Source="{Reference self}" Path="TopHeight"/>
+                                            <Binding Source="{Reference self}" Path="MiddleHeight"/>
+                                            <Binding Source="{Reference self}" Path="BottomHeight"/>
+                                        </MultiBinding.Bindings>
+                                    </MultiBinding>
+                                </PolyBezierSegment.Points>
+                            </PolyBezierSegment>
+                        </PathFigure.Segments>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </AbsoluteLayout>
+</ContentView>
